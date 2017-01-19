@@ -43,8 +43,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => ['aut
 	*/
 
 		// Vistas
-		Route::get('campus/{campus}','CampusController@show');
-		Route::get('campus/{campus}/users','CampusController@users');
+		Route::get('campus/','CampusController@show');
+		Route::get('campus/users','CampusController@users');
+		Route::get('campus/users/{user}','CampusController@user_campus');
 });
 
 

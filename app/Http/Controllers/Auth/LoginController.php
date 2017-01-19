@@ -35,7 +35,7 @@ class LoginController extends Controller
 
     protected function credentials(Request $request)
     {
-        return $credentials = [$this->username() => $request[$this->username()], 'password' => $request->password, 'active' => 1, 'role' => 'administrator'];;
+        return $credentials = [$this->username() => $request[$this->username()], 'password' => $request->password, 'active' => 1, 'role' => 'administrator','campus_id' => session()->get('campus_id')];;
     }
 
     /**
