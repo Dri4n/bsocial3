@@ -18,19 +18,6 @@ class Campus extends Model
     	if($user instanceof User)
 			return $this->users()->save($user);
 		$this->users()->saveMany($user);
-		// else if($user !== NULL && $user->count()){
-		// 	if($user[0] instanceof User){
-		// 		return $this->users()->saveMany($user);
-		// 	}
-		// 	else
-		// 	{
-		// 		throw new \Exception;
-		// 	}
-		// }
-		// else
-		// {
-		// 	throw new \Exception;
-		// }
     }
 
     public function users(){

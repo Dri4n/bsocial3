@@ -6,6 +6,22 @@
 @section('content')
 	<div class="wide-content">
         <div class="settings-wrapper" id="pad-wrapper">
+
+        	<h5 class="personal-title">
+				<strong>Usuarios</strong>
+			</h5>
+
+			<form method="POST" action="" enctype="multipart/form-data" class="pull-right" style="margin-bottom: 15px;">
+                {{ csrf_field() }}
+                <h5>Seleccione un archivo de carga...</h5>
+                <input type="file" name="avatar">
+                <input type="submit" class="btn btn-success btn-xs" value="Importar"> 
+                <br>
+            </form>
+
+            <br>
+            <br>
+
         	<table class="table table-condensed table-strip">
 				<thead>
 					<th>{{ ucfirst(Lang::get('validation.attributes.username')) }}</th>

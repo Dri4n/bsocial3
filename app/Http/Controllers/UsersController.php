@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use \Hash;
+use Gate;
+use Hash;
 use App\User;
 use App\Campus;
 use Illuminate\Http\Request;
@@ -18,10 +19,12 @@ class UsersController extends Controller
 
     // vista -> editar usuario.
     public function edit(User $user){
-    	if($user->id === auth()->id())
-    		return view('users.personal_info',compact('user'));
-    	
-    	return view('errors.401');
+
+        if(Gate::denies('show-user',$user)){
+            return view('errors.401');
+        };
+
+    	return view('users.personal_info',compact('user'));
     }
 
 

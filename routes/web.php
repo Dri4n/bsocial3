@@ -12,10 +12,11 @@
 */
 
 
-Auth::routes();
+Route::Auth();
 
+// 'prefix' => LaravelLocalization::setLocale(),
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => ['auth','localeSessionRedirect', 'localizationRedirect']], function () {
 	Route::get('/', 'HomeController@index');
 	Route::get('/home', 'HomeController@index');
 

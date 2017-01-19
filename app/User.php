@@ -36,4 +36,10 @@ class User extends Authenticatable
     public function campus(){
         return $this->belongsTo(Campus::class);
     }
+
+    public function owns_this($relationShip){
+        if($relationShip instanceof User)
+            return $this->id === $relationShip->id;
+        return $this->id === $relationShip->user_id;
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Gate;
 use App\Campus;
 use Illuminate\Http\Request;
 
@@ -14,6 +15,10 @@ class CampusController extends Controller
 	}
 
     public function show(Campus $campus){
+
+    	 if(Gate::denies('show-user',$campus)){
+            return view('errors.401');
+        };
     	$campus->load('users');
     	return view('campus.show',compact('campus'));
     }
